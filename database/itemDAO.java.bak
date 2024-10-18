@@ -1,0 +1,115 @@
+package database;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import model.itemBox;
+import model.main;
+
+public class itemDAO {
+
+	public itemDAO() {
+	}
+
+	public void loadItemData() {
+		String SQL = "select * from itemData;";
+		try (Connection conn = GetData.getConnection();
+				PreparedStatement st = conn.prepareStatement(SQL)) {
+
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				String name = rs.getString("name");
+				int item_num = rs.getInt("item_num");
+				int item_val = rs.getInt("item_val");
+				int amount = rs.getInt("amount");
+				itemBox IB = new itemBox(name, item_num, item_val, amount);
+				main.IL.itemList.add(IB);
+			}
+
+			System.out.println("itemData取得成功");
+
+			st.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			System.err.println("itemData取得失敗");
+		}
+
+	}
+
+	public void saveItemData() {
+
+		String SQL;
+
+		try (Connection conn = GetData.getConnection();
+				Statement st = conn.createStatement()) {
+
+			for (int i = 0; i < main.IL.getSize(); i++) {
+				SQL = "UPDATE itemData SET amount = " + main.IL.itemList.get(i).getAmount() + " WHERE ID = " + i;
+				st.executeUpdate(SQL);
+			}
+
+			System.out.println("itemData保存成功");
+			st.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			System.err.println("itemData保存失敗");
+		}
+
+	}
+
+	public void initialized() {
+
+		String CTSQL = "CREATE TABLE itemData (" +
+				"ID INTEGER, " +
+				"name VARCHAR(50)," +
+				"item_num INT," +
+				"item_val INT," +
+				"amount INT" +
+				");";
+
+		String[] INSQL = { "(1, \"\", 0, 0, 0)",
+				",(2, \"回し車\", 1, 1000, 0)",
+				",(3, \"ダンベル\", 2, 1200, 0)",
+				",(4, \"タイヤ\", 3, 900, 0)",
+				",(5, \"ヨガマット\", 4, 1000, 0)",
+				",(6, \"縄跳び\", 5,1200, 0)",
+				",(7, \"デッドリフト\", 6, 2000, 0)",
+				",(8, \"けんすいマシーン\", 7, 2300, 0)",
+				",(9, \"稽古用丸太\", 8, 3000, 0)",
+				",(10, \"練習用ハムボット「D-800」\", 9, 86000, 0)",
+				",(11, \"\", 10, 0, 0)",
+				",(12, \"ヒマワリの種\", 11, 200, 0)",
+				",(13, \"ちんげん菜\", 12, 350, 0)",
+				",(14, \"ハムスター用補水液\", 13, 350, 0)",
+				",(15, \"ヒマワリの種 in Protein\", 14, 400, 0)",
+				",(16, \"ハムスター用ジャーキー\", 15, 500, 0)",
+				",(17, \"完全栄養ペレット\", 16, 2500, 0)",
+				",(18, \"HAMSTER ENERGY\", 17, 210, 0)",
+				",(19, \"ゾンビ治療薬\", 18, 8600, 0)" };
+
+		String HEAD = "INSERT INTO itemData VALUES";
+		String BODY = "";
+		for (int i = 0; i < INSQL.length; i++) {
+			BODY += INSQL[i];
+
+		}
+		String FOOT = ";";
+
+		try (Connection conn = GetData.getConnection();
+				Statement st = conn.createStatement()) {
+			st.executeUpdate(CTSQL);
+			PreparedStatement ps;
+			ps = conn.prepareStatement(HEAD + BODY + FOOT);
+			ps.executeUpdate();
+			System.out.println("itemData初期化成功");
+
+		} catch (SQLException e) {
+			System.err.println("itemData初期化失敗");
+		}
+
+	}
+}

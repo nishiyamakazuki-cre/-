@@ -1,0 +1,142 @@
+package model;
+
+import java.util.Random;
+
+public class EnemyStatusCreate {
+
+	private int EZ;
+	private int NL;
+	private int HD;
+	private int WC_EZ;
+	private int WC_NL;
+	private int WC_HD;
+
+	public EnemyStatusCreate() {
+	}
+
+	public void setEnemyLevel(int EZ, int NL, int HD) {
+		this.EZ = EZ;
+		this.NL = NL;
+		this.HD = HD;
+	}
+
+	public void setWC_EZ(int WC_EZ) {
+		this.WC_EZ += WC_EZ;
+	}
+
+	public void setWC_NL(int WC_NL) {
+		this.WC_NL += WC_NL;
+	}
+
+	public void setWC_HD(int WC_HD) {
+		this.WC_HD += WC_HD;
+	}
+
+	public void WinCountLogic() {
+		if (WC_EZ >= 10 && EZ < 3) {
+			EZ++;
+			WC_EZ = 0;
+		}
+		if (WC_NL >= 20 && NL < 4) {
+			NL++;
+			WC_NL = 0;
+		}
+		if (WC_HD >= 25 && HD < 5) {
+			HD++;
+			WC_HD = 0;
+		}
+
+	}
+
+	public void enemyTraining() {
+		int[] status = new int[4];
+
+		status = trainingLogic(EZ);
+		main.EH1 = setStatus(status, main.EH1);
+		status = trainingLogic(NL);
+		main.EH2 = setStatus(status, main.EH2);
+		status = trainingLogic(HD);
+		main.EH3 = setStatus(status, main.EH3);
+	}
+
+	public int[] trainingLogic(int level) {
+		Random rnd = new Random();
+		int[] status = new int[4];
+		int exp = 0;
+		switch (level) {
+		case 1 -> {
+			exp = 91;
+			while (exp > 90 || 80 > exp) {
+				exp = 0;
+				status[0] = 10;
+				for (int i = 1; i < 4; i++) {
+					status[i] = rnd.nextInt(40);
+					exp += status[i];
+				}
+			}
+		}
+		case 2 -> {
+			exp = 106;
+			while (exp > 105 || 95 > exp) {
+				exp = 0;
+				status[0] = 20;
+				for (int i = 1; i < 4; i++) {
+					status[i] = rnd.nextInt(45);
+					exp += status[i];
+				}
+			}
+
+		}
+		case 3 -> {
+			exp = 121;
+			while (exp > 120 || 110 > exp) {
+				exp = 0;
+				status[0] = 30;
+				for (int i = 1; i < 4; i++) {
+					status[i] = rnd.nextInt(50);
+					exp += status[i];
+				}
+			}
+		}
+		case 4 -> {
+			exp = 151;
+			while (exp > 150 || 140 > exp) {
+				exp = 40;
+				status[0] = 40;
+				for (int i = 1; i < 4; i++) {
+					status[i] = rnd.nextInt(60);
+					exp += status[i];
+				}
+			}
+
+		}
+		case 5 -> {
+			exp = 181;
+			while (exp > 180 || 170 > exp) {
+				exp = 40;
+				status[0] = 40;
+				for (int i = 1; i < 4; i++) {
+					status[i] = rnd.nextInt(70);
+					exp += status[i];
+				}
+			}
+
+		}
+		}
+		return status;
+	}
+
+	public hamster setStatus(int[] status, hamster EH) {
+
+		int stamina = EH.getStamina() + status[0];
+		int power = EH.getPower() + status[1];
+		int guts = EH.getGuts() + status[2];
+		int skill = EH.getSkill() + status[3];
+		EH.setStamina(stamina);
+		EH.setPower(power);
+		EH.setGuts(guts);
+		EH.setSkill(skill);
+
+		return EH;
+	}
+}
