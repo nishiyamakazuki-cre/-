@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body {
+	background-color: #e0ffff;
+}
+
+.wrap {
+	position: relative;
+}
+
+input.name {
+	width: 300px;
+	height: 25px;
+	margin: auto;
+
+}
+
+input.command {
+	width: 307px;
+	height: 25px;
+	margin: auto;
+}
+
+.back {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+}
+
+.back img {
+	width: 2040px;
+	height: 900px;
+}
+
+.a {
+	height: 180px;
+	width: 320px;
+	margin: auto;
+	border: 1px solid #333;
+	/*	background: #e3f5ff;*/
+	position: absolute;
+	/* 親要素に対して絶対配置 */
+	top: 400px;
+	/* 上から100px */
+	left: 900px;
+	/* 左から50px */
+	font-size: 24px;
+	text-align: center;
+}
+
+.msg {
+	position: absolute;
+	top: 150px;
+	left: 600px;
+	font-size: 50px;
+	font-weight: bold;
+	text-shadow: 0 0 0.05em #FFF59D, 0 0 0.06em #FFF59D, 0 0 0.07em #FFF59D,
+		0 0 0.08em #FFF59D, 0 0 0.09em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.50em #FFF59D;
+
+}

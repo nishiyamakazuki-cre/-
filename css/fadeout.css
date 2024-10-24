@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* フェードアウト効果 */
+@keyframes fadeInOut {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+.fade-loop {
+	animation: fadeInOut 1.2s ease-in-out infinite;
+}
+
+
+body {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding-top: 20%;
+	font-size: 2rem;
+}

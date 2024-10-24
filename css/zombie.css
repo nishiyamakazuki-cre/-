@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.wrap4 {
+	position: relative;
+}
+
+.niku {
+	position: absolute;
+	top: 0px;
+	left: 600px;
+}
+
+.niku img {
+	width: 600px;
+	height: auto;
+	border-radius: 70%/70%;
+}
+
+.ham {
+	position: absolute;
+	top: 500px;
+	left: 100px;
+}
+
+.ham img {
+	width: 300px;
+	height: auto;
+	transform: rotate(15deg);
+}
+
+.zzz {
+	position: absolute;
+	top: 500px;
+	left: 20px;
+}
+
+.zzz img {
+	width: 100px;
+	height: auto;
+	transform: rotate(15deg);
+}
+
+.yoru {
+	position: absolute;
+	top: 200px;
+	left: 100px;
+	font-size: 50px;
+	font-weight: bold;
+	text-shadow: 0 0 0.05em #FFF59D, 0 0 0.06em #FFF59D, 0 0 0.07em #FFF59D,
+		0 0 0.08em #FFF59D, 0 0 0.09em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.20em #FFF59D, 0 0 0.50em #FFF59D;
+}
+
+.a {
+	position: absolute;
+	top: 600px;
+	left: 600px;
+	font-size: 60px;
+	line-height: 0.95em;
+	font-weight: bold;
+	color: #FFF;
+	text-shadow:
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
+	-webkit-background-clip: text;
+	-webkit-box-reflect: below -0.25em -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, .6)), to(transparent));
+}
+
+body {
+	background-color: #800080;
+}

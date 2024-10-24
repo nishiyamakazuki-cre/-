@@ -1,0 +1,270 @@
+body {
+	background-color: #e0ffff;
+	opacity: 0;
+	/* 初期状態は透明 */
+	transition: opacity 1s ease-in-out;
+
+}
+
+body.fade-in {
+	opacity: 1;
+	/* フェードイン後の表示状態 */
+}
+
+.ie {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 0;
+}
+
+.audio {
+	z-index: 21000;
+}
+
+.ie img {
+	width: auto;
+	height: 100%;
+}
+
+.fade-in {
+	opacity: 1;
+	transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+.wrap3 {
+	position: absolute;
+}
+
+.hamname2 {
+	position: absolute;
+	left: 60px;
+	top: 560px;
+	z-index: 600;
+	font-size: 50px;
+}
+
+.gnav {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	height: 2rem;
+	/*	margin-left: 200px;*/
+	width: 250px;
+	position: fixed;
+	top: 130px;
+	left: 10px;
+	z-index: 30;
+}
+
+.gnav>li {
+	list-style: none;
+	position: relative;
+	/* 親要素をrelativeに */
+}
+
+.gnav li a {
+	background: #001b34;
+	border-right: 1px solid #eee;
+	color: #fff;
+	display: flex;
+	/* フレックスボックスでリンク全体を囲む */
+	align-items: center;
+	/* 縦方向にセンター揃え */
+	justify-content: space-between;
+	/* テキストと▽を左右に分ける */
+	height: 2rem;
+	padding: 0 10px;
+	/* テキストとボーダーに余白を追加 */
+	text-align: left;
+	text-decoration: none;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* 親階層に▽を追加 */
+.gnav>li>a::after {
+	content: "▽";
+	/* 下向き三角を表示 */
+	color: #fff;
+	font-size: 0.8rem;
+	margin-left: 10px;
+}
+
+.gnav li ul {
+	position: absolute;
+	/* 子要素をabsoluteにして隣に表示 */
+	top: 0;
+	left: 100%;
+	/* 親要素の右に表示 */
+	width: 150px;
+	/* サブメニューの幅 */
+	height: auto;
+	visibility: hidden;
+	/* デフォルトは非表示 */
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.gnav li:hover ul {
+	visibility: visible;
+	/* hoverで表示 */
+	opacity: 1;
+}
+
+.gnav li ul li {
+	height: 2rem;
+}
+
+.gnav li li a {
+	border-top: 1px solid #eee;
+	background: #00305c;
+	/* サブメニューのリンクにも余白を追加 */
+}
+
+.gnav li li:hover a {
+	background: #004789;
+}
+
+/*.gnav>li>ul:before {
+	*/
+/*	 子階層の装飾 */
+/*	border: 5px solid transparent;*/
+/*	border-top: 5px solid #fff;*/
+/*	content: "";*/
+/*	right: 1rem;*/
+/*	position: absolute;*/
+/*	top: 1rem;*/
+/*	transform: translateY(-40%);*/
+/*}*/
+
+.wrap2 {
+	position: relative;
+}
+
+/*1580px*/
+.hamuchan {
+	position: absolute;
+	left: 100px;
+	top: 300px;
+	z-index: 10;
+}
+
+.hamuchan img {
+	width: 300px;
+	height: auto;
+}
+
+.hukidasi {
+	position: absolute;
+	left: 10px;
+	top: 600px;
+	z-index: 200;
+}
+
+.hukidasi img {
+	width: 1000px;
+	height: auto;
+}
+
+.parameter {
+	position: absolute;
+	left: 1600px;
+	top: 200px;
+	z-index: 900;
+	font-size: 30px;
+	color: #752100
+}
+
+.komento {
+	position: absolute;
+	left: 100px;
+	top: 700px;
+	z-index: 500;
+	font-size: 50px;
+}
+
+.hamname {
+	position: absolute;
+	left: 1650px;
+	top: 160px;
+	z-index: 900;
+	font-size: 30px;
+	color: #DAA520
+}
+
+.yourname {
+	position: absolute;
+	left: 1650px;
+	top: 390px;
+	z-index: 900;
+	font-size: 30px;
+	color: #DAA520
+}
+
+
+
+.container {
+	position: relative;
+	z-index: 900;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+#gifContainer {
+	position: absolute;
+	z-index: 901;
+	left: 837px;
+	top: 240px;
+}
+
+#gifContainer img {
+	width: 425px;
+	height: 276px;
+}
+
+#imageContainer {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	left: 837px;
+	top: 240px;
+	width: 425px;
+	height: 276px;
+}
+
+#imageContainer img {
+	position: absolute;
+	left: -205px;
+	top: -270px;
+	width: 850px;
+	height: 552px;
+}
+
+button {
+	position: absolute;
+	z-index: 901;
+	background-color: #000;
+	color: #fff;
+	border: none;
+	left: 837px;
+	top: 240px;
+	width: 425px;
+	height: 276px;
+	font-size: 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+button:hover {
+	background-color: #222;
+}

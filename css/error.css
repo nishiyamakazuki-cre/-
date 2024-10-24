@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body {
+	background-color: #e0ffff;
+}
+
+.wrap {
+	position: relative;
+}
+
+.msg {
+	position: absolute;
+	color: crimson;
+	left: 40%;
+	top: 30%;
+	font-size: 40px;
+}
